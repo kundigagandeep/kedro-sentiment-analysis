@@ -6,12 +6,12 @@
 # input data set
 reviews:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/data.csv
+  filepath: data/01_raw/raw_reviews.csv
 
 # input data set
 reviews_processed:
   type: pandas.CSVDataSet
-  filepath: data/02_intermediate/data.csv
+  filepath: data/02_intermediate/reviews_processed.csv
   
 # review_with_sentiment
 reviews_with_sentiment:

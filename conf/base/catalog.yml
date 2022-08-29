@@ -1,0 +1,19 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+# input data set
+reviews:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data.csv
+
+# input data set
+reviews_processed:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/data.csv
+  
+# review_with_sentiment
+reviews_with_sentiment:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/reviews_with_sentiment.csv

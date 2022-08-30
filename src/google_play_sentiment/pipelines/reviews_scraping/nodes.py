@@ -8,7 +8,7 @@ from google_play_scraper import app, Sort, reviews_all
 from transformers import pipeline
 
 def reviews_scrape():
-    hk_project = reviews_all( 'com.hikingproject.android', 
+    hk_project = reviews_all('com.hikingproject.android', 
                             sleep_milliseconds=0, 
                             lang ='en',
                             country='US', 

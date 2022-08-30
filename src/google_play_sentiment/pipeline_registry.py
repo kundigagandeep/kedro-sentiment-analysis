@@ -1,4 +1,5 @@
 """Project pipelines."""
+from distutils.command.upload import upload
 from typing import Dict
 
 from kedro.pipeline import Pipeline, pipeline
@@ -7,7 +8,8 @@ from google_play_sentiment.pipelines import reviews_scraping as scrape,\
                                             reviews_sentiment as sent,\
                                             reviews_processing as prep,\
                                             data_validation as rdv,\
-                                            final_data_validation as fdv
+                                            final_data_validation as fdv,\
+                                            data_upload as du
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -22,11 +24,14 @@ def register_pipelines() -> Dict[str, Pipeline]:
 
     final_data_validation = fdv.create_pipeline()
 
+    upload_data = du.create_pipeline()
+
     return {
 
-        "__default__": scrape_pipeline + data_validation + process_reviews + reviews_sentiment + final_data_validation,
+        "__default__": scrape_pipeline + data_validation + process_reviews + reviews_sentiment + final_data_validation + upload_data,
         "scrape": scrape_pipeline + data_validation,
         "preprocessing": process_reviews,
-        "sentiment": reviews_sentiment + final_data_validation
+        "sentiment": reviews_sentiment + final_data_validation,
+        "upload_data": upload_data
     }
 

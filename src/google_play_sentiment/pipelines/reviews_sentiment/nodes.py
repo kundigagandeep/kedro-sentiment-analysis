@@ -16,8 +16,12 @@ def reviews_sentiment(df):
 
     df['score']= df['result'].apply(lambda x: (x[0]['score']))
 
+    df['score'] = round(df['score'],3)
+
+    df = df.rename(columns={"score":"sentiment_score"})
+
     df = df.drop(columns="result")
 
-    df = df[['reviewId', 'date', 'content', 'thumbsUpCount', 'reviewCreatedVersion','sentiment','score']]
+    df = df[['reviewId', 'date', 'content', 'rating', 'thumbsUpCount', 'reviewCreatedVersion','sentiment','sentiment_score']]
 
     return df

@@ -13,6 +13,12 @@ def create_pipeline(**kwargs) -> Pipeline:
                 reviews_processing,
                 inputs="reviews",
                 outputs='reviews_processed'
-            )
-        ]
-    )
+         )
+        #     [
+        #         node(
+        #         split_month,
+        #         inputs="reviews_processed",
+        #         outputs='reviews_processed')
+        # ]
+    ]
+)

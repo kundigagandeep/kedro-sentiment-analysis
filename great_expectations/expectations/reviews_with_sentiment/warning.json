@@ -5,7 +5,7 @@
     {
       "expectation_type": "expect_table_column_count_to_equal",
       "kwargs": {
-        "value": 7
+        "value": 8
       },
       "meta": {}
     },
@@ -26,7 +26,7 @@
     {
       "expectation_type": "expect_column_to_exist",
       "kwargs": {
-        "column": "score"
+        "column": "sentiment_score"
       },
       "meta": {}
     },

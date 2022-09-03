@@ -1,5 +1,6 @@
 import sys
 import logging
+from pathlib import Path
 from kedro.framework.hooks import hook_impl
 from great_expectations.checkpoint.types.checkpoint_result import CheckpointResult
 from great_expectations.data_context import DataContext
@@ -7,7 +8,7 @@ from great_expectations.data_context import DataContext
 
 def raw_data_validation(dataset_name:str)-> None:
     data_context = DataContext(
-        context_root_dir="C:/Users/gagan/Python Projects/kedro/kedro-sentiment-analysis/great_expectations"
+        context_root_dir=Path.cwd()/"great_expectations"
     )
 
     result: CheckpointResult = data_context.run_checkpoint(
@@ -26,7 +27,7 @@ def raw_data_validation(dataset_name:str)-> None:
 
 def final_data_validation(dataset_name:str)-> None:
     data_context = DataContext(
-        context_root_dir="C:/Users/gagan/Python Projects/kedro/kedro-sentiment-analysis/great_expectations"
+        context_root_dir=Path.cwd()/"great_expectations"
     )
 
     result: CheckpointResult = data_context.run_checkpoint(

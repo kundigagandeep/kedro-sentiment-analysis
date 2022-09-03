@@ -1,18 +1,11 @@
-"""
-This is a boilerplate pipeline 'data_validation'
-generated using Kedro 0.18.2
-"""
-
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import raw_data_validation
+from .nodes import raw_data_validation, final_data_validation
 
 def create_pipeline(**kwargs) -> Pipeline:
     return Pipeline(
         [
-                node(raw_data_validation,
-                inputs="reviews",
-                outputs=None
+            node(func=raw_data_validation,inputs="reviews",outputs=None),
+            node(func=final_data_validation,inputs="reviews_with_sentiment",outputs=None)
 
-                )
         ]
     )
